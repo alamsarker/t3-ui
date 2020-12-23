@@ -1,0 +1,48 @@
+  .container {    
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid #bb3f3f; */
+    flex-direction: column;    
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+  }
+  
+  .board {
+    display : flex;
+    flex-wrap: wrap;   
+    width   : 250px;
+    height  : 250px;
+    padding : 5px;
+    border  : 1px solid #070707;
+    background: #5abc9b;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: column;   
+    /* border: 1px solid rgb(38, 18, 109); */
+  }
+  
+  .square {
+    width: 76px;
+    height: 76px;
+    border: 1px solid #070707;
+    margin: 2px;
+    color: #070707;
+    font-size: 4em;
+    font-weight: 100;
+    text-align: center;
+    cursor: pointer;
+  }
+
+table .table {
+  width: 100%;
+  border: 1px solid teal;
+}
+
+.table th, .table td { 
+  text-align: center; 
+  padding: 0.25em;
+}
