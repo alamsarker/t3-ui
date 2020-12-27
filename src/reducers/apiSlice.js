@@ -19,13 +19,7 @@ export const apiSlice = createSlice({
         operationId : payload.operationId,
         parameters: payload.parameters || {}
       }
-    },
-    // requested: state => {
-    //     return {
-    //       ...state,
-    //       loading: true
-    //     }
-    // },
+    },   
     succeed: (state, {payload}) => {
       const output = payload.output || 'output';
       return {

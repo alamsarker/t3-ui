@@ -21,7 +21,6 @@ import {
 } from '../../lib/game';
 
 const Game = () => {
-
   const game = useSelector(selectGame);
   const dispatch = useDispatch();
 
@@ -30,37 +29,45 @@ const Game = () => {
     let {
       board,
       xIsNext,
-      result
+      result,
+      stepNumber
     } = {
       board: [
         ...game.board
       ],
       xIsNext: game.xIsNext,
-      result: game.result
+      result: game.result,
+      stepNumber: Number(game.stepNumber)
     };
 
-    if(result) {
+    if(result || board[boxNumber]) {
       return;
     }
 
     dispatch(callApi({
-      operationId: 'addLog',      
+      operationId: 'addLog',
       parameters: {
         body: {
           boxNumber,
-          gameNumber: 1,
-          stepNumber: 1,
+          stepNumber,
           name: nextPlayer(xIsNext)
         }
       }
     }));
 
+    dispatch(callApi({
+      operationId: 'getLogs',
+      output: 'logs'
+    }));
+
     board[boxNumber] = nextPlayer(xIsNext);
     xIsNext = !xIsNext;
+    stepNumber++;
 
     dispatch(nextMove({
       xIsNext,
-      board
+      board,
+      stepNumber
     }));
 
     const winner = findWinner(board);

@@ -3,24 +3,26 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   board: Array(9).fill(''),
   xIsNext: true,    
-  result: ''
+  result: '',
+  stepNumber: 1
 }
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {    
-    setResult: (state, action) => {
+    setResult: (state, {payload}) => {
       return {
         ...state,
-        result: action.payload.result
+        result: payload.result
       };
     },
-    nextMove: (state, action) => {
+    nextMove: (state, {payload}) => {
       return {
         ...state,        
-        board: action.payload.board,
-        xIsNext: action.payload.xIsNext
+        board: payload.board,
+        xIsNext: payload.xIsNext,
+        stepNumber: payload.stepNumber,
       };
     }
   },

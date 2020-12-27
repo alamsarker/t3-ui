@@ -6,46 +6,47 @@ import {
 	selectApi
 } from '../../reducers/apiSlice';
 
-const History = () => {
-	//console.log("Rendaring the component..");
-	const {logs} = useSelector(selectApi);
+const History = () => {	
+	
 	const dispatch = useDispatch();
-
+	const {loading, logs} = useSelector(selectApi);
+	
 	useEffect(() => {
-		//console.log("Loading...")
 		dispatch(callApi({
 				operationId: 'getLogs',
 				output: 'logs'
-			}));		
+		}));
 	},[dispatch]);
 
-	//console.log("data", logs);
-
+	console.log("rendering the component..", logs);
+	
 	return(
 		<>
 			<h2>Action Log</h2>
-			<table className={styles.table}>
-				<thead>
-				<tr>
-					<th>Game No.</th>
-					<th>Step</th>
-					<th>Player</th>
-					<th>Chosen Box</th>
-				</tr>
+			{loading && <div>Loading...</div>}
+			{!loading && logs && logs.length === 0 && <div>No log found.</div>}
+			{!loading && logs && logs.length > 0 && <div>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+						<th>Step No.</th>
+						<th>Player</th>
+						<th>Box No.</th>
+					</tr>
 				</thead>
-				<tbody>
-					{ logs && logs.map( (l, i) => {
-						return (
-							<tr key={i}>
-								<td>{l.gameNumber}</td>
-								<td>{l.stepNumber}</td>
-								<td>{l.name}</td>
-								<td>{l.boxNumber}</td>
-							</tr>
-						)
-					})}
-				</tbody>
-			</table>
+					<tbody>					
+						{logs && logs.map((l, i) => {
+							return (
+								<tr key={i}>								
+									<td>{l.stepNumber}</td>
+									<td>{l.name}</td>
+									<td>{l.boxNumber}</td>
+								</tr>
+								)
+						})}
+					</tbody>
+				</table>
+			</div>}
 		</>  
 	)
 }

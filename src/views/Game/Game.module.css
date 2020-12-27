@@ -1,7 +1,6 @@
   .container {    
     display: flex;
-    justify-content: center;
-    /* border: 1px solid #bb3f3f; */
+    justify-content: center;    
     flex-direction: column;    
     align-items: center;
     width: 100%;
@@ -15,14 +14,12 @@
     width   : 250px;
     height  : 250px;
     padding : 5px;
-    border  : 1px solid #070707;
-    background: #5abc9b;
+    border  : 1px solid #070707;    
   }
   
   .row {
     display: flex;
-    flex-direction: column;   
-    /* border: 1px solid rgb(38, 18, 109); */
+    flex-direction: column;       
   }
   
   .square {
@@ -38,8 +35,7 @@
   }
 
 table .table {
-  width: 100%;
-  border: 1px solid teal;
+  width: 100%;  
 }
 
 .table th, .table td { 
