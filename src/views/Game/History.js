@@ -16,9 +16,7 @@ const History = () => {
 				operationId: 'getLogs',
 				output: 'logs'
 		}));
-	},[dispatch]);
-
-	console.log("rendering the component..", logs);
+	},[dispatch]);	
 	
 	return(
 		<>
