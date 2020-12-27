@@ -14,7 +14,7 @@ const Board = ({ onClick }) => {
 			{chunk(game.board, 3).map( (items, i) => {
 				return (
 					<div key={i} className={styles.row}>
-						{items.map( (v, j) => <Square key={ i * 3 + j}  value={v} onClick={() => onClick(i * 3 + j) } />  )}
+						{items.map( (v, j) => <Square key={ i * 3 + j} boxNumber={ i * 3 + j}  value={v} onClick={() => onClick(i * 3 + j) } />  )}
 					</div>
 				);
 			})}

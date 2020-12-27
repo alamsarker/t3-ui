@@ -12,8 +12,8 @@ const GameInfo = () => {
   return(
     <>
       <h2>Tic Tac Toe</h2>
-      { !game.result && <div>Next Player: {nextPlayer(game.xIsNext)}</div> }
-      { game.result && <div>{game.result}</div> }
+      { !game.result && <div id="nw-next-player">Next Player: {nextPlayer(game.xIsNext)}</div> }
+      { game.result && <div id="nw-result">{game.result}</div> }
     </>
   )
 }

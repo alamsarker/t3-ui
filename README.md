@@ -19,8 +19,8 @@ Step 2: Install NodeJS and packages
 
 ## Unit Tests
 
-Please `npm run test` for running unit testing.
-
+1) Run `npm run test` for unit testing the react component.
+2) Run `npx nightwatch` for automation test.
 
 ## Technical Notes
 

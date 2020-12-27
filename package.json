@@ -36,5 +36,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chromedriver": "^87.0.4",
+    "geckodriver": "^1.21.1",
+    "nightwatch": "^1.5.1"
   }
 }
